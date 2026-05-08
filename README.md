@@ -1,0 +1,30 @@
+# Проект Sprint_5: автоматизация тестирования Stellar Burgers
+
+## Описание
+Автотесты на Selenium + pytest для проверки функциональности сайта Stellar Burgers:
+- регистрация, вход (4 способа), личный кабинет, конструктор (вкладки), выход.
+
+## Технологии
+- Python 3.14
+- Selenium
+- pytest
+- webdriver-manager
+
+## Установка и запуск
+1. Клонировать репозиторий.
+2. Создать виртуальное окружение: `python -m venv .venv`
+3. Активировать: `.venv\Scripts\activate.bat`
+4. Установить зависимости: `pip install -r requirements.txt`
+5. Запустить тесты: `pytest tests/ -v`
+
+## Структура
+- `conftest.py` – фикстуры (драйвер, новый пользователь)
+- `locators.py` – локаторы элементов
+- `generators.py` – генерация уникального email
+- `data.py` – тестовые данные
+- `tests/` – все тесты (по 1 файлу на функциональность):
+    test_registration.py – регистрация (успех + ошибка пароля)
+    test_login.py – 4 способа входа
+    test_personal_account.py – переход в личный кабинет
+    test_constructor.py - – переход к разделам
+    test_logout.py – выход из аккаунта# Sprint_5
