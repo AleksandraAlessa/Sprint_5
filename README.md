@@ -26,5 +26,7 @@
     test_registration.py – регистрация (успех + ошибка пароля)
     test_login.py – 4 способа входа
     test_personal_account.py – переход в личный кабинет
-    test_constructor.py - – переход к разделам
+    test_constructor.py - – переход к разделам - сделана параметризация
     test_logout.py – выход из аккаунта# Sprint_5
+    test_go_constructor_from_personal_account  - переход по клику на конструктор
+    test_go_to_main_via_logo - переход по клику на логотип

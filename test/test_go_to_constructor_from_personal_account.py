@@ -1,9 +1,10 @@
+import pytest
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from locators import StellarLocators
 from data import MAIN_URL
 
-def test_go_to_personal_account(driver, new_user):
+def test_go_to_constructor_from_personal_account(driver, new_user):
     driver.get(MAIN_URL)
     driver.find_element(*StellarLocators.LOGIN_BUTTON_MAIN).click()
     WebDriverWait(driver, 10).until(EC.visibility_of_element_located(StellarLocators.LOGIN_EMAIL))
@@ -18,7 +19,10 @@ def test_go_to_personal_account(driver, new_user):
     driver.find_element(*StellarLocators.LOGIN_PASSWORD).send_keys(new_user["password"])
     driver.find_element(*StellarLocators.LOGIN_SUBMIT).click()
     WebDriverWait(driver, 10).until(EC.url_to_be(MAIN_URL))
+    # переход в личный кабинет
     driver.find_element(*StellarLocators.PERSONAL_ACCOUNT_LINK).click()
     WebDriverWait(driver, 10).until(EC.visibility_of_element_located(StellarLocators.LOGOUT_BUTTON))
-    # Проверка, что мы в личном кабинете (например, по URL)
-    assert "/account" in driver.current_url
+    # клик по "Конструктор"
+    driver.find_element(*StellarLocators.CONSTRUCTOR_BUTTON).click()
+    WebDriverWait(driver, 10).until(EC.visibility_of_element_located(StellarLocators.BUNS_TAB))
+    assert driver.current_url == MAIN_URL

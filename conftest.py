@@ -2,10 +2,28 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 from generators import generate_unique_email
-from data import DEFAULT_PASSWORD
+from data import DEFAULT_PASSWORD, MAIN_URL
+from locators import StellarLocators   # <-- обязательно импортировать!
 
+# ------------------------------------------------------------
+# Вспомогательная функция для входа (можно использовать в тестах)
+# ------------------------------------------------------------
+def login_user(driver, email, password):
+    driver.find_element(*StellarLocators.LOGIN_EMAIL).send_keys(email)
+    driver.find_element(*StellarLocators.LOGIN_PASSWORD).send_keys(password)
+    driver.find_element(*StellarLocators.LOGIN_SUBMIT).click()
+    WebDriverWait(driver, 10).until(EC.url_to_be(MAIN_URL))
+    WebDriverWait(driver, 10).until(
+        EC.visibility_of_element_located(StellarLocators.CONSTRUCTOR_BUTTON)
+    )
+
+# ------------------------------------------------------------
+# Основная фикстура драйвера для тестов (каждый тест – свой браузер)
+# ------------------------------------------------------------
 @pytest.fixture
 def driver():
     chrome_options = Options()
@@ -16,6 +34,9 @@ def driver():
     yield driver
     driver.quit()
 
+# ------------------------------------------------------------
+# Фикстура для генерации уникального пользователя (если нужно прямо в тесте)
+# ------------------------------------------------------------
 @pytest.fixture
 def new_user():
     email = generate_unique_email()
