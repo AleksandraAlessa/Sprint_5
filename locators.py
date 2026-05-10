@@ -14,7 +14,7 @@ class StellarLocators:
 
     # ---------- Вход ----------
     LOGIN_BUTTON_MAIN = (By.XPATH, "//button[text()='Войти в аккаунт']")  # главная страница
-    LOGIN_BUTTON_PERSONAL = (By.XPATH, "//a[contains(text()='Личный кабинет')]")  # кнопка в хедере (если не авторизован)
+    LOGIN_BUTTON_PERSONAL = (By.XPATH, "//a[contains(text(), 'Личный кабинет')]")  # кнопка в хедере (если не авторизован)
     LOGIN_BUTTON_REGISTER_FORM = (By.XPATH, "//a[text()='Войти']")  # на странице регистрации
     LOGIN_BUTTON_RECOVERY_FORM = (By.XPATH, "//a[text()='Войти']")  # на странице восстановления пароля
     LOGIN_EMAIL = (By.NAME, "name")  # поле "Email" на форме входа
