@@ -12,6 +12,7 @@ import pytest
 def test_switch_tab(driver, tab_locator, expected_text):
     driver.get(MAIN_URL)
     driver.find_element(*tab_locator).click()
-    WebDriverWait(driver, 10).until(
-        lambda d: expected_text in d.find_element(*StellarLocators.ACTIVE_TAB).text
+    active_text = WebDriverWait(driver, 10).until(
+        lambda d: d.find_element(*StellarLocators.ACTIVE_TAB).text
     )
+    assert expected_text in active_text, f"Активная вкладка '{active_text}', ожидалась '{expected_text}'"
