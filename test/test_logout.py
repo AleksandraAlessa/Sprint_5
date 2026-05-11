@@ -29,3 +29,4 @@ def test_logout(driver, new_user):
     # Проверяем, что вернулись на главную и появилась кнопка «Войти в аккаунт»
     WebDriverWait(driver, 15).until(EC.visibility_of_element_located(StellarLocators.LOGIN_BUTTON_MAIN))
     assert driver.current_url == MAIN_URL
+    

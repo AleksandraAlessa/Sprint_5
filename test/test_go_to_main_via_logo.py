@@ -24,3 +24,4 @@ def test_go_to_main_via_logo(driver, new_user):
     driver.find_element(*StellarLocators.LOGO).click()
     WebDriverWait(driver, 10).until(EC.visibility_of_element_located(StellarLocators.BUNS_TAB))
     assert driver.current_url == MAIN_URL
+    

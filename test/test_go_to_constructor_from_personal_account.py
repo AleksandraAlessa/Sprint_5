@@ -26,3 +26,4 @@ def test_go_to_constructor_from_personal_account(driver, new_user):
     driver.find_element(*StellarLocators.CONSTRUCTOR_BUTTON).click()
     WebDriverWait(driver, 10).until(EC.visibility_of_element_located(StellarLocators.BUNS_TAB))
     assert driver.current_url == MAIN_URL
+    

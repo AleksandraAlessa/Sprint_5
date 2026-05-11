@@ -22,3 +22,4 @@ def test_go_to_personal_account(driver, new_user):
     WebDriverWait(driver, 10).until(EC.visibility_of_element_located(StellarLocators.LOGOUT_BUTTON))
     # Проверка, что мы в личном кабинете (например, по URL)
     assert "/account" in driver.current_url
+    

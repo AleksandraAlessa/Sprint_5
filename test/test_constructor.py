@@ -16,3 +16,4 @@ def test_switch_tab(driver, tab_locator, expected_text):
         lambda d: d.find_element(*StellarLocators.ACTIVE_TAB).text
     )
     assert expected_text in active_text, f"Активная вкладка '{active_text}', ожидалась '{expected_text}'"
+    

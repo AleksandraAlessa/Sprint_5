@@ -45,3 +45,4 @@ class TestLogin:
         driver.find_element(*StellarLocators.LOGIN_SUBMIT).click()
         WebDriverWait(driver, 10).until(EC.url_to_be(MAIN_URL))
         assert "login" not in driver.current_url
+        

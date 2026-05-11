@@ -29,3 +29,4 @@ class TestRegistration:
         driver.find_element(*StellarLocators.REGISTER_BUTTON).click()
         error = driver.find_element(*StellarLocators.REGISTER_ERROR)
         assert error.text == "Некорректный пароль"
+        
