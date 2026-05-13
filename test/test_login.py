@@ -18,7 +18,7 @@ class TestLogin:
 
     def test_login_via_personal_account(self, driver, registered_user):
         driver.get(MAIN_URL)
-        driver.find_element(*StellarLocators.LOGIN_BUTTON_PERSONAL).click()
+        driver.find_element(*StellarLocators.LOGIN_BUTTON_MAIN).click()
         WebDriverWait(driver, 10).until(EC.visibility_of_element_located(StellarLocators.LOGIN_EMAIL))
         driver.find_element(*StellarLocators.LOGIN_EMAIL).send_keys(registered_user["email"])
         driver.find_element(*StellarLocators.LOGIN_PASSWORD).send_keys(registered_user["password"])
