@@ -34,4 +34,3 @@
     test_logout.py – выход из аккаунта# Sprint_5
     test_go_constructor_from_personal_account  - переход по клику на конструктор
     test_go_to_main_via_logo - переход по клику на логотип
-## 
